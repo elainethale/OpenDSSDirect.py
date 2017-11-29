@@ -1,0 +1,1178 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started &mdash; OpenDSSDirect.py 0.2.11 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="OpenDSSDirect.py 0.2.11 documentation" href="../index.html"/>
+        <link rel="next" title="Usage" href="Example-OpenDSSDirect.py.html"/>
+        <link rel="prev" title="Installation" href="Installation.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> OpenDSSDirect.py
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.11
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Using-the-pandas-interface">Using the <code class="docutils literal"><span class="pre">pandas</span></code> interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Example-OpenDSSDirect.py.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ActiveClass.html">Using ActiveClass interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../opendssdirect.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">OpenDSSDirect.py</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Getting Started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/notebooks/GettingStarted.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Getting-Started">
+<h1>Getting Started<a class="headerlink" href="#Getting-Started" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal"><span class="pre">OpenDSSDirect.py</span></code> is a Python interface to the C calling interface of
+a OpenDSS shared library.</p>
+<p>To use <code class="docutils literal"><span class="pre">OpenDSSDirect.py</span></code> open a Python interpreter and type the
+following command.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">opendssdirect</span> <span class="kn">as</span> <span class="nn">dss</span>
+</pre></div>
+</div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">dss</span></code> module has submodules that act as interfaces to various
+components in OpenDSS. The full list of the modules is shown below.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dss</span><span class="o">.</span><span class="n">ActiveClass</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">Basic</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">Bus</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">CapControls</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">Capacitors</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">Circuit</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">CktElement</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">Element</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">Executive</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">Fuses</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">Generators</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">Isource</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">Lines</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">LoadShape</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">Loads</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">Meters</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">Monitors</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">PDElements</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">PVsystems</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">Parser</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">Properties</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">Reclosers</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">RegControls</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">Relays</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">Sensors</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">Settings</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">Solution</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">SwtControls</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">Topology</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">Transformers</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">Vsources</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">XYCurves</span>
+</pre></div>
+</div>
+<p>These modules are the higher level interface to OpenDSS. The <code class="docutils literal"><span class="pre">dss</span></code>
+module also has a lower level interface in <code class="docutils literal"><span class="pre">dss.dss_lib</span></code>. The higher
+level interface uses the lower level interface to call the appropriate
+functions. For the most part, a <code class="docutils literal"><span class="pre">OpenDSSDirect.py</span></code> user will not need
+to use the lower level interface, but knowing that it exists can be
+useful.</p>
+<p>The <code class="docutils literal"><span class="pre">utils</span></code> module implements helper functions that make it easier to
+use the interface.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">opendssdirect.utils</span> <span class="kn">import</span> <span class="n">run_command</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">run_command</span><span class="p">(</span><span class="s1">&#39;Redirect ../../tests/data/13Bus/IEEE13Nodeckt.dss&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<p>This function is also provided on the base module</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">dss</span><span class="o">.</span><span class="n">run_command</span><span class="p">(</span><span class="s1">&#39;Redirect ../../tests/data/13Bus/IEEE13Nodeckt.dss&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<p>We can print all bus names using the following.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dss</span><span class="o">.</span><span class="n">Circuit</span><span class="o">.</span><span class="n">AllBusNames</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+sourcebus
+650
+rg60
+633
+634
+671
+645
+646
+692
+675
+611
+652
+670
+632
+680
+684
+</pre></div></div>
+</div>
+<div class="section" id="Using-the-pandas-interface">
+<h2>Using the <code class="docutils literal"><span class="pre">pandas</span></code> interface<a class="headerlink" href="#Using-the-pandas-interface" title="Permalink to this headline">¶</a></h2>
+<p>An optional <code class="docutils literal"><span class="pre">pandas</span></code> interface is also provided in the package, so
+making it easier to get data from OpenDSS. See <a class="reference external" href="https://nrel.github.io/OpenDSSDirect.py/notebooks/Installation.html">installation
+instructions</a>
+for how to install the requirements for this interface.</p>
+<p>All load data can be attained using the <code class="docutils literal"><span class="pre">loads_to_dataframe</span></code> function.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">dss</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">loads_to_dataframe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AllocationFactor</th>
+      <th>CFactor</th>
+      <th>CVRCurve</th>
+      <th>CVRvars</th>
+      <th>CVRwatts</th>
+      <th>Class</th>
+      <th>Count</th>
+      <th>Daily</th>
+      <th>Duty</th>
+      <th>Growth</th>
+      <th>...</th>
+      <th>Xneut</th>
+      <th>Yearly</th>
+      <th>ZipV</th>
+      <th>kV</th>
+      <th>kVABase</th>
+      <th>kW</th>
+      <th>kWh</th>
+      <th>kWhDays</th>
+      <th>kvar</th>
+      <th>puSeriesRL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>611</th>
+      <td>0.5</td>
+      <td>4</td>
+      <td></td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>15</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td>0</td>
+      <td></td>
+      <td>[]</td>
+      <td>2.4</td>
+      <td>187.883</td>
+      <td>170</td>
+      <td>0</td>
+      <td>30</td>
+      <td>80</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>634a</th>
+      <td>0.5</td>
+      <td>4</td>
+      <td></td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>15</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td>0</td>
+      <td></td>
+      <td>[]</td>
+      <td>0.277</td>
+      <td>194.165</td>
+      <td>160</td>
+      <td>0</td>
+      <td>30</td>
+      <td>110</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>634b</th>
+      <td>0.5</td>
+      <td>4</td>
+      <td></td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>15</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td>0</td>
+      <td></td>
+      <td>[]</td>
+      <td>0.277</td>
+      <td>150</td>
+      <td>120</td>
+      <td>0</td>
+      <td>30</td>
+      <td>90</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>634c</th>
+      <td>0.5</td>
+      <td>4</td>
+      <td></td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>15</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td>0</td>
+      <td></td>
+      <td>[]</td>
+      <td>0.277</td>
+      <td>150</td>
+      <td>120</td>
+      <td>0</td>
+      <td>30</td>
+      <td>90</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>645</th>
+      <td>0.5</td>
+      <td>4</td>
+      <td></td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>15</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td>0</td>
+      <td></td>
+      <td>[]</td>
+      <td>2.4</td>
+      <td>211.009</td>
+      <td>170</td>
+      <td>0</td>
+      <td>30</td>
+      <td>125</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>646</th>
+      <td>0.5</td>
+      <td>4</td>
+      <td></td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>15</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td>0</td>
+      <td></td>
+      <td>[]</td>
+      <td>4.16</td>
+      <td>265.187</td>
+      <td>230</td>
+      <td>0</td>
+      <td>30</td>
+      <td>132</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>652</th>
+      <td>0.5</td>
+      <td>4</td>
+      <td></td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>15</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td>0</td>
+      <td></td>
+      <td>[]</td>
+      <td>2.4</td>
+      <td>154.208</td>
+      <td>128</td>
+      <td>0</td>
+      <td>30</td>
+      <td>86</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>670a</th>
+      <td>0.5</td>
+      <td>4</td>
+      <td></td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>15</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td>0</td>
+      <td></td>
+      <td>[]</td>
+      <td>2.4</td>
+      <td>19.7231</td>
+      <td>17</td>
+      <td>0</td>
+      <td>30</td>
+      <td>10</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>670b</th>
+      <td>0.5</td>
+      <td>4</td>
+      <td></td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>15</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td>0</td>
+      <td></td>
+      <td>[]</td>
+      <td>2.4</td>
+      <td>76.1577</td>
+      <td>66</td>
+      <td>0</td>
+      <td>30</td>
+      <td>38</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>670c</th>
+      <td>0.5</td>
+      <td>4</td>
+      <td></td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>15</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td>0</td>
+      <td></td>
+      <td>[]</td>
+      <td>2.4</td>
+      <td>135.326</td>
+      <td>117</td>
+      <td>0</td>
+      <td>30</td>
+      <td>68</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>671</th>
+      <td>0.5</td>
+      <td>4</td>
+      <td></td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>15</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td>0</td>
+      <td></td>
+      <td>[]</td>
+      <td>4.16</td>
+      <td>1330.27</td>
+      <td>1155</td>
+      <td>0</td>
+      <td>30</td>
+      <td>660</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>675a</th>
+      <td>0.5</td>
+      <td>4</td>
+      <td></td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>15</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td>0</td>
+      <td></td>
+      <td>[]</td>
+      <td>2.4</td>
+      <td>520.889</td>
+      <td>485</td>
+      <td>0</td>
+      <td>30</td>
+      <td>190</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>675b</th>
+      <td>0.5</td>
+      <td>4</td>
+      <td></td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>15</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td>0</td>
+      <td></td>
+      <td>[]</td>
+      <td>2.4</td>
+      <td>90.6863</td>
+      <td>68</td>
+      <td>0</td>
+      <td>30</td>
+      <td>60</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>675c</th>
+      <td>0.5</td>
+      <td>4</td>
+      <td></td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>15</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td>0</td>
+      <td></td>
+      <td>[]</td>
+      <td>2.4</td>
+      <td>359.227</td>
+      <td>290</td>
+      <td>0</td>
+      <td>30</td>
+      <td>212</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>692</th>
+      <td>0.5</td>
+      <td>4</td>
+      <td></td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>15</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td>0</td>
+      <td></td>
+      <td>[]</td>
+      <td>4.16</td>
+      <td>227.379</td>
+      <td>170</td>
+      <td>0</td>
+      <td>30</td>
+      <td>151</td>
+      <td>50</td>
+    </tr>
+  </tbody>
+</table>
+<p>15 rows × 37 columns</p>
+</div></div>
+</div>
+<p>Similarly, all transformer data can be attained using the
+<code class="docutils literal"><span class="pre">transformers_to_dataframe</span></code> function</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">dss</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">transformers_to_dataframe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Count</th>
+      <th>IsDelta</th>
+      <th>MaxTap</th>
+      <th>MinTap</th>
+      <th>Name</th>
+      <th>NumTaps</th>
+      <th>NumWindings</th>
+      <th>R</th>
+      <th>Rneut</th>
+      <th>Tap</th>
+      <th>Wdg</th>
+      <th>XfmrCode</th>
+      <th>Xhl</th>
+      <th>Xht</th>
+      <th>Xlt</th>
+      <th>Xneut</th>
+      <th>kV</th>
+      <th>kVA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>reg1</th>
+      <td>5</td>
+      <td>0</td>
+      <td>1.1</td>
+      <td>0.9</td>
+      <td>reg1</td>
+      <td>32</td>
+      <td>2</td>
+      <td>5e-05</td>
+      <td>-1</td>
+      <td>1.05625</td>
+      <td>2</td>
+      <td></td>
+      <td>0.0001</td>
+      <td>0.35</td>
+      <td>0.3</td>
+      <td>0</td>
+      <td>2.4</td>
+      <td>1666</td>
+    </tr>
+    <tr>
+      <th>reg2</th>
+      <td>5</td>
+      <td>0</td>
+      <td>1.1</td>
+      <td>0.9</td>
+      <td>reg2</td>
+      <td>32</td>
+      <td>2</td>
+      <td>5e-05</td>
+      <td>-1</td>
+      <td>1.0375</td>
+      <td>2</td>
+      <td></td>
+      <td>0.0001</td>
+      <td>0.35</td>
+      <td>0.3</td>
+      <td>0</td>
+      <td>2.4</td>
+      <td>1666</td>
+    </tr>
+    <tr>
+      <th>reg3</th>
+      <td>5</td>
+      <td>0</td>
+      <td>1.1</td>
+      <td>0.9</td>
+      <td>reg3</td>
+      <td>32</td>
+      <td>2</td>
+      <td>5e-05</td>
+      <td>-1</td>
+      <td>1.05625</td>
+      <td>2</td>
+      <td></td>
+      <td>0.0001</td>
+      <td>0.35</td>
+      <td>0.3</td>
+      <td>0</td>
+      <td>2.4</td>
+      <td>1666</td>
+    </tr>
+    <tr>
+      <th>sub</th>
+      <td>5</td>
+      <td>0</td>
+      <td>1.1</td>
+      <td>0.9</td>
+      <td>sub</td>
+      <td>32</td>
+      <td>2</td>
+      <td>5e-06</td>
+      <td>-1</td>
+      <td>1</td>
+      <td>2</td>
+      <td></td>
+      <td>8e-05</td>
+      <td>0.04</td>
+      <td>0.04</td>
+      <td>0</td>
+      <td>4.16</td>
+      <td>5000</td>
+    </tr>
+    <tr>
+      <th>xfm1</th>
+      <td>5</td>
+      <td>0</td>
+      <td>1.1</td>
+      <td>0.9</td>
+      <td>xfm1</td>
+      <td>32</td>
+      <td>2</td>
+      <td>0.0055</td>
+      <td>-1</td>
+      <td>1</td>
+      <td>2</td>
+      <td></td>
+      <td>0.02</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>0</td>
+      <td>0.48</td>
+      <td>500</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>A full list of available functions is listed below:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dss</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">capacitors_to_dataframe</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">fuses_to_dataframe</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">generators_to_dataframe</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">isource_to_dataframe</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">lines_to_dataframe</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">loads_to_dataframe</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">loadshape_to_dataframe</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">meters_to_dataframe</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">monitors_to_dataframe</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">pvsystems_to_dataframe</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">reclosers_to_dataframe</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">regcontrols_to_dataframe</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">relays_to_dataframe</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">sensors_to_dataframe</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">transformers_to_dataframe</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">vsources_to_dataframe</span>
+<span class="n">dss</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">xycurves_to_dataframe</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Example-OpenDSSDirect.py.html" class="btn btn-neutral float-right" title="Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Installation.html" class="btn btn-neutral" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Dheepak Krishnamurthy.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.2.11',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
